@@ -24,3 +24,4 @@ hs_err_pid*
 #intellij idea 忽略文件
 *.iml
 .idea
+target
