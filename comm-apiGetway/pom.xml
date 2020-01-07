@@ -7,6 +7,35 @@
     <groupId>com.jiangxing.org</groupId>
     <artifactId>comm-apiGetway</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <parent>
+        <groupId>com.jiangxing.org</groupId>
+        <artifactId>comm-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <dependencies>
 
-    
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!--eureka client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+
+        <!--spring-cloud 网关组件-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>
