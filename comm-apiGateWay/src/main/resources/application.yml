@@ -1,0 +1,13 @@
+#启动端口
+server:
+  port: 8081
+#注册中心
+
+eureka:
+   client:
+     serviceUrl:
+        defaultZone: http://localhost:8080/eureka/
+#spring配置
+spring:
+   application:
+     name: api-gateWay
