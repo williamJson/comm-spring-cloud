@@ -1,4 +1,4 @@
-package com.jiangxing.apiGetway;
+package com.jiangxing.apigateway;
 
 
 import org.springframework.boot.SpringApplication;
@@ -12,9 +12,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class ApiGetwayApplication {
+public class ApiGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiGetwayApplication.class, args);
+        SpringApplication.run(ApiGatewayApplication.class, args);
     }
 }
