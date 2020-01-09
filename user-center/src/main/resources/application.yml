@@ -1,12 +1,15 @@
-#Æô¶¯¶Ë¿Ú
+#ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½
 server:
   port: 8082
-#×¢²áÖÐÐÄÅäÖÃ
+#×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/
-#Ó¦ÓÃÃû³Æ
+#Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 spring:
   application:
     name: user-center
+feign:
+  hystrix:
+    enabled: true
