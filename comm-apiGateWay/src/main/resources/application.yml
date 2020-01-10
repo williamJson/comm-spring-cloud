@@ -1,13 +1,22 @@
-#Æô¶¯¶Ë¿Ú
+#ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½
 server:
   port: 8081
-#×¢²áÖÐÐÄ
+#×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 eureka:
    client:
      serviceUrl:
         defaultZone: http://localhost:8080/eureka/
-#springÅäÖÃ
+#springï¿½ï¿½ï¿½ï¿½
 spring:
    application:
      name: api-gateWay
+zuul:
+  routes:
+    api-user:
+      path: /user/**
+      service-id: user-center
+    api-order:
+      path: /order/**
+      service-id: order-center
+
