@@ -93,7 +93,7 @@ public class IdWorker {
     /**
      * 获取id
      *
-     * @return
+     * @return id
      */
     public static synchronized long nextId() {
         if (currentTimeMillis > MAX_TIME_MILLIS) {
@@ -128,23 +128,21 @@ public class IdWorker {
     /**
      * 获取当前时间与起始定义时间差值
      *
-     * @return
+     * @return 差值时间
      */
     private static long getCurrentTimeMillis() {
         return System.currentTimeMillis() - INIT_TIME_MILLIS;
     }
 
-    public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
-        long endTime = startTime + 1000L;
-        int num = 0;
-        while (System.currentTimeMillis() <= endTime) {
-//            System.out.println(nextId());
-            nextId();
-            num++;
-        }
-        System.out.println("===>" + num);
-        //System.out.println((1L << 41));
-        //结论：这样的雪花算法，经过测试单线程情况下，每秒大概能生产出2000K左右id,完全能满足生产条件下使用
-    }
+//    public static void main(String[] args) {
+//        long startTime = System.currentTimeMillis();
+//        long endTime = startTime + 1000L;
+//        int num = 0;
+//        while (System.currentTimeMillis() <= endTime) {
+//            nextId();
+//            num++;
+//        }
+//        System.out.println("生成id总数：" + num);
+//        //结论：这样的雪花算法，经过测试单线程情况下，每秒大概能生产出2000K左右id,完全能满足生产条件下使用
+//    }
 }
