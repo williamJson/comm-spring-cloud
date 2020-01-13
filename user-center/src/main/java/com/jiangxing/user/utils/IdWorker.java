@@ -8,8 +8,11 @@ package com.jiangxing.user.utils;
  * [2 bit -42bit] 共41bit: 存储时间戳 ，精确到毫秒
  * [43bit - 52bit] 共10bit: 存储机器码+业务码，这块保留10bit,使用时可以自由分配，本文实现采用 5bit业务码+5bit机器码
  * [53bit - 64bit] 共12bit: 毫秒内id自增计数器
- *使用：
+ * 使用：
  * 标注有【可自行修改】的参数，可根据实际需求更改，其他参数不建议修改
+ * 注意：
+ * 在linux系统中会有时钟回拨机制，所以在使用该方案时，建议关闭时钟回拨
+ *
  * @author wyq
  */
 public class IdWorker {
@@ -109,6 +112,11 @@ public class IdWorker {
                 //循环重置初始时间，直到下一毫秒为止
                 currentTimeMillis = getCurrentTimeMillis();
             }
+            //解决时钟回拨问题,比较简单粗暴，使用起来还是没有问题的
+            if (currentTimeMillis < lastTimeMillis) {
+                long refusedSeconds = lastTimeMillis - currentTimeMillis;
+                throw new RuntimeException("Clock moved backwards. Refusing for" + refusedSeconds);
+            }
             lastTimeMillis = currentTimeMillis;
             count = 0;
             currentCount = count++;
@@ -131,7 +139,7 @@ public class IdWorker {
         long endTime = startTime + 1000L;
         int num = 0;
         while (System.currentTimeMillis() <= endTime) {
-            // System.out.println(nextId());
+//            System.out.println(nextId());
             nextId();
             num++;
         }
