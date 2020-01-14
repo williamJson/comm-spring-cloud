@@ -7,6 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -36,4 +38,14 @@ public class UserApplication {
 //    public RestTemplate restTemplate() {
 //        return new RestTemplate();
 //    }
+
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        //单机redis配置类
+        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("127.0.0.1", 6379);
+        //lettuce的redis工厂类，听说lettuce操作redis是线程安全的
+        LettuceConnectionFactory factory = new LettuceConnectionFactory(config);
+        return factory;
+    }
 }
