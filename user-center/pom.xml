@@ -56,5 +56,11 @@
         </dependency>
 
         <!--集成mysql如下依赖 mybatis mybatis-spring mysql-connector-java驱动-->
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.37</version>
+        </dependency>
     </dependencies>
 </project>
