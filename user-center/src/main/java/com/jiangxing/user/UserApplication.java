@@ -48,4 +48,6 @@ public class UserApplication {
         LettuceConnectionFactory factory = new LettuceConnectionFactory(config);
         return factory;
     }
+
+
 }
